@@ -1,0 +1,18 @@
+name: Basic CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check if README exists
+        run: test -f README.md
+
+      - name: Print devops notes
+        run: cat devops-notes.md
